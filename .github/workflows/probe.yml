@@ -1,0 +1,16 @@
+name: dispatch probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dispatch to missing ref cmd-bot
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run other.yml --ref cmd-bot -f a=b
+          echo "GH_EXIT=$?"
