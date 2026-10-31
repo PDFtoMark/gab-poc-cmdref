@@ -1,0 +1,11 @@
+name: other
+on:
+  workflow_dispatch:
+    inputs:
+      a:
+        required: false
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hi
