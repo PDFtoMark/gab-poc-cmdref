@@ -8,6 +8,7 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: dispatch to missing ref cmd-bot
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
